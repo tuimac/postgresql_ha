@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgresql-p:
+    image: postgres
+    container_name: postgresql-p
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: test
+      POSTGRES_DB: test
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    tty: true
+    stdin_open: true
+    networks:
+      - postgresql
+  postgresql-s:
+    image: postgres
+    container_name: postgresql-s
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: test
+      POSTGRES_DB: test
+    ports:
+      - 5433:5432
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    tty: true
+    stdin_open: true
+    networks:
+      - postgresql
+networks:
+  postgresql:
+    name: postgresql
