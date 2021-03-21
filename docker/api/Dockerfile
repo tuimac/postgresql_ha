@@ -21,7 +21,7 @@ RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazo
     git clone https://github.com/tuimac/postgresql_ha && \
     git config --global user.email "tuimac.devadm01@gmail.com" && \
     git config --global user.name "tuimac" && \
-    cd /root/postgresql && \
+    cd /root/postgresql_ha && \
     ./mvnw package -Dmaven.test.skip
 
 ENTRYPOINT ["/root/entrypoint.sh"]
