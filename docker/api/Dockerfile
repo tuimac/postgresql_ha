@@ -2,6 +2,8 @@ FROM alpine:latest
 
 WORKDIR /root
 
+ENV JAVA_HOME='/usr'
+
 RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazoncorretto.rsa.pub && \
     echo "https://apk.corretto.aws/" >> /etc/apk/repositories && \
     apk update && \
@@ -14,6 +16,8 @@ RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazo
     rm /etc/vim/vimrc && \
     curl -L https://raw.githubusercontent.com/tuimac/tools/master/vim/vimrc -o /etc/vim/vimrc && \
     curl -L https://raw.githubusercontent.com/tuimac/tools/master/linux/bashrc/.bashrc_node_docker -o /root/.bashrc && \
-    git clone https://github.com/tuimac/postgresql_ha
+    git clone https://github.com/tuimac/postgresql_ha && \
+    cd /root/postgresql && \
+    ./mvnw package
 
-ENTRYPOINT ["/root/postgresql_ha/mvnw spring-boot:run"]
+ENTRYPOINT ["java", "-jar", "/root/postgresql_ha/target/postgresql-test-1.jar"]

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>rest-service</artifactId>
+	<artifactId>postgresql-test</artifactId>
 	<version>1</version>
 	<name>postgres-test</name>
 	<description>Demo project for Postgresql redundancy</description>
@@ -30,7 +30,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
+	</dependency>
 	</dependencies>
 	<build>
 		<plugins>
