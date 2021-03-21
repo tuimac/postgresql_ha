@@ -20,6 +20,6 @@ RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazo
     git config --global user.email "tuimac.devadm01@gmail.com" && \
     git config --global user.name "tuimac" && \
     cd /root/postgresql && \
-    ./mvnw package
+    ./mvnw package -Dmaven.test.skip
 
 ENTRYPOINT ["java", "-jar", "/root/postgresql_ha/target/postgresql-test-1.jar"]
