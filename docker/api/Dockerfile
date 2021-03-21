@@ -17,6 +17,8 @@ RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazo
     curl -L https://raw.githubusercontent.com/tuimac/tools/master/vim/vimrc -o /etc/vim/vimrc && \
     curl -L https://raw.githubusercontent.com/tuimac/tools/master/linux/bashrc/.bashrc_node_docker -o /root/.bashrc && \
     git clone https://github.com/tuimac/postgresql_ha && \
+    git config --global user.email "tuimac.devadm01@gmail.com" && \
+    git config --global user.name "tuimac" && \
     cd /root/postgresql && \
     ./mvnw package
 
