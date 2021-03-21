@@ -29,6 +29,16 @@ services:
     stdin_open: true
     networks:
       - postgresql
+  api:
+    image: api-postgres
+    container_name: api-postgres
+    build: ./api
+    ports:
+      - 8080:8080
+    tty: true
+    stdin_open: true
+    networks:
+      - postgresql
 networks:
   postgresql:
     name: postgresql
