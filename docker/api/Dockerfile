@@ -4,8 +4,8 @@ WORKDIR /root
 
 ADD entrypoint.sh /root/entrypoint.sh
 
-RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazoncorretto.rsa.pub
-    echo "https://apk.corretto.aws/" >> /etc/apk/repositories
+RUN wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazoncorretto.rsa.pub && \
+    echo "https://apk.corretto.aws/" >> /etc/apk/repositories && \
     apk update && \
     apk upgrade && \
     apk add --no-cache git bash tzdata vim curl ncurses tree amazon-corretto-11 maven && \
